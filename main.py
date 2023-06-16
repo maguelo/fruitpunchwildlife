@@ -1,6 +1,12 @@
 from fruitpunchwildlife import datasets
 from pprint import pprint 
 
+
+# Install the library executing in collab
+# !pip install git+https://github.com/maguelo/fruitpunchwildlife
+
+
+
 if __name__=='__main__':
     DATASET_PATH = "/home/maguelo/Workspace/fruitpunch/megadetector/dataset" #"dataset"  # Path to the dataset
 
@@ -29,7 +35,11 @@ if __name__=='__main__':
 
 
     split_dict=datasets.split_balanced_dataset(balanced_df)        
-    datasets.prepare_yolov58(split_dict,balanced_df)
+
+    # Generate dataset.yaml
+    print(datasets.prepare_yolov58(split_dict,balanced_df))
+
+    #Work in progress already generated the folders with the images and labels with the new category id
     datasets.prepare_yolonas(split_dict, 'test_dataset')
-    
+
 
